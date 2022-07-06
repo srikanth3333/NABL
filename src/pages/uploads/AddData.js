@@ -23,7 +23,7 @@ function AddData() {
         formData.append("ulrNo", ulr);
         formData.append("startDate", startDate);
         formData.append("log", log);
-        await axios.post(`http://localhost:7000/api/addMeterData`, formData,{
+        await axios.post(`http://192.168.0.243:7000/api/addMeterData`, formData,{
             headers: {
                 'Content-Type': 'multipart/form-data'
             }

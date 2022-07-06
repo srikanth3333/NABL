@@ -13,7 +13,7 @@ function Register() {
   const [accCerNo, setAccCerNo] = React.useState('')
   const [accValid, setAccValid] = React.useState('')
   const [accLink, setAccLink] = React.useState('')
-  const [password, setPassword] = React.useState('')
+  const [mobileNo, setMobileNo] = React.useState('')
   let history = useNavigate()
 
   const postData = async (e) => {
@@ -27,9 +27,9 @@ function Register() {
       AccCertificateNo:accCerNo,
       AccValidity:accValid,
       AcccerificateLink:accLink,
-      password:password,
+      mobileNo:mobileNo,
     }
-    await axios.post("http://localhost:7000/api/addProfile",data)
+    await axios.post("http://192.168.0.243:7000/api/addProfile",data)
     .then(res => {
       if(res.data.status == true) {
         history("/")
@@ -49,8 +49,8 @@ function Register() {
                   <h2 className="text-center">Fill the profile</h2>
                   <form onSubmit={postData}>
                     <div className="form-group">
-                      <label htmlFor="">Username</label>
-                      <input type="text" required placeholder="Enter username" onChange={(e) => setName(e.target.value)} className="form-control" />
+                      <label htmlFor="">Company Name</label>
+                      <input type="text" required placeholder="Company name" onChange={(e) => setName(e.target.value)} className="form-control" />
                     </div>
                     <div className="form-group">
                       <label htmlFor="">Address</label>
@@ -77,8 +77,8 @@ function Register() {
                       <input type="text" required onChange={(e) => setAccLink(e.target.value)} className="form-control" />
                     </div>
                     <div className="form-group">
-                      <label htmlFor="">Password</label>
-                      <input type="password" required placeholder="Enter password" onChange={(e) => setPassword(e.target.value)} className="form-control" />
+                      <label htmlFor="">Enter mobile number</label>
+                      <input type="number" min="1"  required placeholder="Enter mobile number" onChange={(e) => setMobileNo(e.target.value)} className="form-control" />
                     </div>
                     <div className="form-group text-center">
                         <button type="submit" className="btn px-4 btn-success py-2">Submit</button>

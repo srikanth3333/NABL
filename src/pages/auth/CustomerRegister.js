@@ -18,7 +18,7 @@ function CustomerRegister() {
       mobileNo:mobileNo,
       password:password,
     }
-    await axios.post("http://localhost:7000/api/addProfile",data)
+    await axios.post("http://192.168.0.243:7000/api/addProfile",data)
     .then(res => {
       console.log(res)
       if(res.data.status == true) {

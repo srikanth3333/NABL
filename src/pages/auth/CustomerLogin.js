@@ -13,7 +13,7 @@ function CustomerLogin() {
     if(!username || !password) {
       return alert("Below fields cannot be empty");
     }
-    axios.get(`http://localhost:7000/api/login?name=${username}&password=${password}`)
+    axios.get(`http://192.168.0.243:7000/api/login?name=${username}&password=${password}`)
     .then((res) => {
       if(res.data.status == true) {
         localStorage.setItem('role', res.data.profile.role);
@@ -35,8 +35,8 @@ function CustomerLogin() {
                       <h2>Login Here</h2>
                       <form onSubmit={handleLogin}>
                           <div className="form-group">
-                            <label htmlFor="">Username</label>
-                            <input type="text" onChange={(e) => setUsername(e.target.value)} className="form-control" placeholder="Enter username" />
+                            <label htmlFor="">Mobile Number</label>
+                            <input type="number" min="1" onChange={(e) => setUsername(e.target.value)} className="form-control" placeholder="Enter username" />
                           </div>
                           <div className="form-group">
                             <label htmlFor="">Password</label>
